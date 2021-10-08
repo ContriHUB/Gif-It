@@ -30,7 +30,8 @@ const SearchBar = ({ setVideosList }) => {
     return (
         <div className="SearchBar">
             <input
-                type="text"
+                type="text" 
+                autoFocus
                 placeholder="Search Video..."
                 ref={inputSearch}
             />
