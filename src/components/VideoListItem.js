@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/VideoListItem.css";
 
-const VideoListItem = ({ videoItem }) => {
+const VideoListItem = ({ videoItem, setVideoDetails }) => {
     const videoId = videoItem.id.videoId;
     const url = "https://youtube.com/embed/" + videoId;
-
+//
     return (
         <div className="VideoListItem">
             <img
@@ -17,7 +17,14 @@ const VideoListItem = ({ videoItem }) => {
 
             {/* TODO: ISSUE: Make this Video to Open inside the Player, instead
             of playing in separate Page. */}
-            <a style={{ padding: "5px" }} href={url}>
+            <a style={{ padding: "5px", cursor: "pointer" }} onClick={(e) => {
+                        setVideoDetails((prev) => {
+                            return {
+                                ...prev,
+                                video: videoItem,
+                            };
+                        });
+            }}>
                 {videoItem.snippet.title}
             </a>
         </div>
