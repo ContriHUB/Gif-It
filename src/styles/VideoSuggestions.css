@@ -1,4 +1,6 @@
 .VideoSuggestions {
     width: 40%;
     overflow: auto;
+    padding: 10px;
+    margin-bottom: 5%;
 }
