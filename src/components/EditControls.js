@@ -1,10 +1,6 @@
 import React, { useRef } from "react";
 import "../styles/EditControls.css";
 
-/**
- * TODO: ISSUE: Alert the Cases when user provides invalid number in duration input
- * E.g. a Negative Number, number of seconds > REACT_APP_MAX_ALLOWED_GIF_LENGTH
- */
 const EditControls = ({ videoDetails, setVideoDetails }) => {
     const startRef = useRef(null); // ref for the start-time input element
     const videoClipDurationRef = useRef(null); // ref for video-clip-duration input element
@@ -16,9 +12,11 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
     }
 
     const checkTimeValidity = () => {
-        return (startRef.current.value >= 0 && startRef.current.value <= videoDetails.videoDuration &&
-            videoClipDurationRef.current.value >= 0 && videoClipDurationRef.current.value <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH &&
-            startRef.current.value + videoClipDurationRef.current.value <= videoDetails.videoDuration);
+        let StartTime = parseInt(startRef.current.value)
+        let Duration = parseInt(videoClipDurationRef.current.value)
+        return (StartTime >= 0 && StartTime <= videoDetails.videoDuration &&
+            Duration >= 0 && Duration <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH &&
+            (StartTime + Duration) <= videoDetails.videoDuration);
     }
 
     return (
