@@ -12,6 +12,13 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
     const showInvalidPrompt = () => {
         alert(`Invalid start time & duration !!\nThe start time should be in range [0, ${videoDetails.videoDuration}].\nThe duration should be in range of [0,${process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH}].`)
         startRef.current.value = 0;
+        videoClipDurationRef.current.value = 0;
+    }
+
+    const checkTimeValidity = () => {
+        return (startRef.current.value >= 0 && startRef.current.value <= videoDetails.videoDuration &&
+            videoClipDurationRef.current.value >= 0 && videoClipDurationRef.current.value <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH &&
+            startRef.current.value + videoClipDurationRef.current.value <= videoDetails.videoDuration);
     }
 
     return (
@@ -55,8 +62,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                         <td>
                             <button
                                 onClick={(e) => {
-                                    if(startRef.current.value >= 0 && startRef.current.value <= videoDetails.videoDuration && 
-                                        videoClipDurationRef.current.value >= 0 && videoClipDurationRef.current.value <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH) {
+                                    if(checkTimeValidity()) {
                                         setVideoDetails((prev) => {
                                             return {
                                                 ...prev,
@@ -78,8 +84,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                         <td>
                             <button
                                 onClick={(e) => {
-                                    if(startRef.current.value >= 0 && startRef.current.value <= videoDetails.videoDuration && 
-                                        videoClipDurationRef.current.value >= 0 && videoClipDurationRef.current.value <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH) {
+                                    if(checkTimeValidity()) {
                                         setVideoDetails((prev) => {
                                             return {
                                                 ...prev,
