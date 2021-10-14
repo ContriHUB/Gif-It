@@ -1,19 +1,27 @@
 import React from "react";
+import nextId from "react-id-generator";
 import "../styles/VideoListItem.css";
-
 const VideoListItem = ({ videoItem, setVideoDetails }) => {
     const videoId = videoItem.id.videoId;
     const url = "https://youtube.com/embed/" + videoId;
-//
-    return (
-        <div className="VideoListItem">
+    var htmlId = nextId();
+    const handleList = (e) => {
             
-
-            {/* TODO: ISSUE: Make this Video to Open inside the Player, instead
-            of playing in separate Page. */}
-            <a style={{ padding: "5px", cursor: "pointer" }} onClick={(e) => {
+        var list = document.querySelectorAll('.VideoListItem');
+        var item = document.querySelectorAll('p');
+        for(let i=0;i<list.length;i++){
+            
+            list[i].style.backgroundColor = 'white';
+            list[i].style.boxShadow = '0 0 0px 5px white';
+        }
+        document.getElementById(e.htmlId).style.backgroundColor = 'rgb(203, 223, 248)';
+        document.getElementById(e.htmlId).style.boxShadow = '0 0 8px 5px rgba(225, 131, 248, 0.7)';
+    }
+    return (
+        <div id={htmlId} className='VideoListItem' onClick={(e) => {
+                        handleList({htmlId});
                         setVideoDetails((prev) => {
-                            return {
+                           return {
                                 ...prev,
                                 video: videoItem,
                             };
@@ -28,7 +36,7 @@ const VideoListItem = ({ videoItem, setVideoDetails }) => {
                 alt="Ankit"/>
                 {videoItem.snippet.title}
             </p>
-            </a>
+            
         </div>
     );
 };
