@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; 
 import "../styles/EditControls.css";
 
 const EditControls = ({ videoDetails, setVideoDetails }) => {
@@ -6,7 +8,9 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
     const videoClipDurationRef = useRef(null); // ref for video-clip-duration input element
 
     const showInvalidPrompt = () => {
-        alert(`Invalid start time & duration !!\nThe start time should be in range [0, ${videoDetails.videoDuration}].\nThe duration should be in range of [0,${process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH}].`)
+        toast.configure();
+        toast(`Invalid start time & duration !!\nThe start time should be in range [0, ${videoDetails.videoDuration}].\nThe duration should be in range of
+         [0,${process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH}].`,{position: toast.POSITION.TOP_CENTER});
         startRef.current.value = 0;
         videoClipDurationRef.current.value = 0;
     }
@@ -50,7 +54,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                     process.env
                                         .REACT_APP_MAX_ALLOWED_GIF_LENGTH,
                                     videoDetails.videoDuration -
-                                        videoDetails.start
+                                    videoDetails.start
                                 )}
                                 defaultValue="0"
                             />
@@ -60,7 +64,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                         <td>
                             <button
                                 onClick={(e) => {
-                                    if(checkTimeValidity()) {
+                                    if (checkTimeValidity()) {
                                         setVideoDetails((prev) => {
                                             return {
                                                 ...prev,
@@ -72,7 +76,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                                 shouldCreateGif: false,
                                             };
                                         });
-                                    } else 
+                                    } else
                                         showInvalidPrompt();
                                 }}
                             >
@@ -82,7 +86,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                         <td>
                             <button
                                 onClick={(e) => {
-                                    if(checkTimeValidity()) {
+                                    if (checkTimeValidity()) {
                                         setVideoDetails((prev) => {
                                             return {
                                                 ...prev,
@@ -94,7 +98,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                                 shouldCreateGif: true,
                                             };
                                         });
-                                    } else 
+                                    } else
                                         showInvalidPrompt();
                                 }}
                             >
