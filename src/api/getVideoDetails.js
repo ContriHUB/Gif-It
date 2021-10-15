@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let ROOT_URL = "https://www.googleapis.com/youtube/v3/videos?id=9bZkp7q19f0&part=contentDetails&key=REACT_APP_YT_API_KEY";
+let ROOT_URL = "https://www.googleapis.com/youtube/v3/videos";
 // www.googleapis.com/youtube/v3/videos?id=9bZkp7q19f0&part=contentDetails&key={YOUR_API_KEY}
 
 /**
