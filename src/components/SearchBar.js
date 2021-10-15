@@ -21,6 +21,7 @@ const SearchBar = ({ setVideosList }) => {
                     maxResults: process.env.REACT_APP_YT_MAX_VIDEOS_COUNT,
                 },
                 (videos) => {
+                    setVideosList([]);
                     setVideosList(videos);
                 }
             );

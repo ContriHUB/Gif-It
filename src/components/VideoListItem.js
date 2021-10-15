@@ -14,8 +14,8 @@ const VideoListItem = ({ videoItem, setVideoDetails }) => {
             list[i].style.backgroundColor = 'white';
             list[i].style.boxShadow = '0 0 0px 5px white';
         }
-        document.getElementById(e.htmlId).style.backgroundColor = 'rgb(203, 223, 248)';
-        document.getElementById(e.htmlId).style.boxShadow = '0 0 8px 5px rgba(225, 131, 248, 0.7)';
+        document.getElementById(e.htmlId).style.backgroundColor = 'rgb(125, 177, 240)';
+        document.getElementById(e.htmlId).style.boxShadow = '0 0 10px 5px rgba(108, 2, 134, 0.7)';
     }
     return (
         <div id={htmlId} className='VideoListItem' onClick={(e) => {
