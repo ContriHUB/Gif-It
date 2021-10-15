@@ -104,7 +104,7 @@ const MainContent = ({ videosList }) => {
                         setShowEditControls={setShowEditControls}
                     />
                     {showEditControls === false ? (
-                        <VideoSuggestions videosList={videosList} />
+                        <VideoSuggestions videosList={videosList} setVideoDetails={setVideoDetails}/>
                     ) : (
                         <EditControls
                             videoDetails={videoDetails}
