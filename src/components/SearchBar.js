@@ -1,16 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import YTSearch from "youtube-api-search";
-
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; 
 import "../styles/SearchBar.css";
 
 // TODO: ISSUE: Style this Search Bar exactly like the Youtube-Search
 // TODO: ISSUE: Make the Input Field Auto-Focus on visiting the Website.
 const SearchBar = ({ setVideosList }) => {
+    toast.configure();
     const inputSearch = useRef(undefined);
     const handleSearchClick = (e) => {
         const inputStr = inputSearch.current.value.trim();
         if (inputStr === "") {
-            alert("Empty Search");
+            toast("Empty Search", {position: toast.POSITION.TOP_RIGHT});
         } else {
             YTSearch(
                 {
