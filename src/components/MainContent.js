@@ -39,6 +39,7 @@ const MainContent = ({ videosList }) => {
             {
                 key: process.env.REACT_APP_YT_API_KEY,
                 id: videosList[0].id.videoId,
+                
             },
             (videoDetailsResponse) => {
                 const videoDuration = getDurationInSeconds(
@@ -54,6 +55,7 @@ const MainContent = ({ videosList }) => {
                 });
             }
         );
+    
     }, [videosList]);
 
     /**
@@ -104,7 +106,7 @@ const MainContent = ({ videosList }) => {
                         setShowEditControls={setShowEditControls}
                     />
                     {showEditControls === false ? (
-                        <VideoSuggestions videosList={videosList} />
+                        <VideoSuggestions videosList={videosList} setVideoDetails={setVideoDetails}/>
                     ) : (
                         <EditControls
                             videoDetails={videoDetails}
