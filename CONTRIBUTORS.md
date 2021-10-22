@@ -12,5 +12,6 @@ Here's to the crazy ones:
     <td align="center"><a href="https://github.com/gursimran18"><img src="https://github.com/gursimran18.png?v=4?s=100" width="100px;" alt="Gursimran Kaur Saini"/><br /><sub><b>Gursimran Kaur Saini</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/Yashikaj14"><img src="https://github.com/Yashikaj14.png?v=4?s=100" width="100px;" alt="Yashika Jain"/><br /><sub><b>Yashika Jain</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/vaishnavi1011"><img src="https://github.com/vaishnavi1011.png?v=4?s=100" width="100px;" alt="Vaaishnavi Tripathi"/><br /><sub><b>Vaishnavi Tripathi</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/pinnacle20"><img src="https://github.com/pinnacle20.png?v=4?s=100" width="100px;" alt="Shivanand"/><br /><sub><b>Shivanand </b></sub></a><br /></td>
   </tr>
 </table>
