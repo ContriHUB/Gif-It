@@ -11,7 +11,6 @@ Process of converting and fetching the gif from the server is slower, sometimes 
 
 **NOTE**: Future prospects are to make this completely Client Side. See [Live Demo](https://gif-it-now.herokuapp.com) for basic functionality.
 
-Special Mention: [Aman Tibrewal](https://github.com/amantibrewal310) for suggesting youtube-dl.
 
 ## How to run it locally?
 1. > ***Clone this repo to your local machine and cd into the Gif-It directory.***
@@ -54,3 +53,5 @@ Inside [CONTRIBUTORS.md](CONTRIBUTORS.md) file.
 
 ## Mentor(s)
 * [Ankit Sangwan](https://github.com/ankitsangwan1999)
+
+Special Mention: [Aman Tibrewal](https://github.com/amantibrewal310) for suggesting youtube-dl.
