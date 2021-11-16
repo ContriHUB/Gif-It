@@ -3,13 +3,18 @@
     flex-grow: 1;
 }
 
-.EditControls input:focus{
-    border: 1.1px solid #1c62b9;  
+@media (max-width: 450px) {
+    .EditControls table {
+    }
+}
+
+.EditControls input:focus {
+    border: 1.1px solid #1c62b9;
     padding: 2.3%;
     box-shadow: 0px 0px 5px rgba(83, 83, 226, 0.6) inset;
 }
 
-.EditControls input{
+.EditControls input {
     padding: 2%;
     width: 40%;
     padding-bottom: 0.45%;

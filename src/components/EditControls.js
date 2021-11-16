@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'; 
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/EditControls.css";
 
 const EditControls = ({ videoDetails, setVideoDetails }) => {
@@ -9,29 +9,38 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
 
     const showInvalidPrompt = () => {
         toast.configure();
-        toast(`Invalid start time & duration !!\nThe start time should be in range [0, ${videoDetails.videoDuration}].\nThe duration should be in range of
-         [0,${process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH}].`,{position: toast.POSITION.TOP_CENTER});
+        toast(
+            `Invalid start time & duration !!\nThe start time should be in range [0, ${videoDetails.videoDuration}].\nThe duration should be in range of
+         [0,${process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH}].`,
+            { position: toast.POSITION.TOP_CENTER }
+        );
         startRef.current.value = 0;
         videoClipDurationRef.current.value = 0;
-    }
+    };
 
     const checkTimeValidity = () => {
-        let StartTime = parseInt(startRef.current.value)
-        let Duration = parseInt(videoClipDurationRef.current.value)
-        return (StartTime >= 0 && StartTime <= videoDetails.videoDuration &&
-            Duration >= 0 && Duration <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH &&
-            (StartTime + Duration) <= videoDetails.videoDuration);
-    }
+        let StartTime = parseInt(startRef.current.value);
+        let Duration = parseInt(videoClipDurationRef.current.value);
+        return (
+            StartTime >= 0 &&
+            StartTime <= videoDetails.videoDuration &&
+            Duration >= 0 &&
+            Duration <= process.env.REACT_APP_MAX_ALLOWED_GIF_LENGTH &&
+            StartTime + Duration <= videoDetails.videoDuration
+        );
+    };
 
     return (
         <div className="EditControls">
             <table>
+                <colgroup>
+                    <col span="1" style={{ width: "55%" }} />
+                    <col span="1" style={{ width: "45%" }} />
+                </colgroup>
                 <tbody>
                     <tr>
-                        <td>
-                            <label>Start Time</label>
-                        </td>
-                        <td>
+                        <td align="right">Start Time</td>
+                        <td align="left">
                             <input
                                 ref={startRef}
                                 type="number"
@@ -42,10 +51,10 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td align="right">
                             <label>Clip Duration</label>
                         </td>
-                        <td>
+                        <td align="left">
                             <input
                                 ref={videoClipDurationRef}
                                 type="number"
@@ -54,14 +63,14 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                     process.env
                                         .REACT_APP_MAX_ALLOWED_GIF_LENGTH,
                                     videoDetails.videoDuration -
-                                    videoDetails.start
+                                        videoDetails.start
                                 )}
                                 defaultValue="0"
                             />
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td align="right">
                             <button
                                 onClick={(e) => {
                                     if (checkTimeValidity()) {
@@ -76,14 +85,13 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                                 shouldCreateGif: false,
                                             };
                                         });
-                                    } else
-                                        showInvalidPrompt();
+                                    } else showInvalidPrompt();
                                 }}
                             >
                                 Show Preview
                             </button>
                         </td>
-                        <td>
+                        <td align="left">
                             <button
                                 onClick={(e) => {
                                     if (checkTimeValidity()) {
@@ -98,8 +106,7 @@ const EditControls = ({ videoDetails, setVideoDetails }) => {
                                                 shouldCreateGif: true,
                                             };
                                         });
-                                    } else
-                                        showInvalidPrompt();
+                                    } else showInvalidPrompt();
                                 }}
                             >
                                 Gif-It Now!

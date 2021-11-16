@@ -1,5 +1,12 @@
 .MainContent {
-    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+    .MainContent {
+        flex-direction: column;
+    }
 }
 
 .MainContentLoading {
