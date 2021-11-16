@@ -10,12 +10,12 @@
     transition: 0.2s;
 }
 
-.VideoListItem img{
+.VideoListItem img {
     float: left;
     margin: 0 10px 10px;
 }
 
-.VideoListItem:hover{
+.VideoListItem:hover {
     box-shadow: 0 0 8px 5px rgba(225, 131, 248, 0.7) !important;
     background-color: rgb(203, 223, 248) !important;
 }
